@@ -1,0 +1,157 @@
+:root{
+    --principal: #38664D;
+    --cor-1: #eee;
+    --cor-2: #E2E8E4;
+    --cinza: #333;
+    --cinza2: #666;
+    --cinza3: #999;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #F8F9F5;
+    margin: 0;
+    padding: 40px;
+    color: var(--cinza);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-banner {
+    background-color: var(--principal);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.header-banner h1 {
+    margin: 0 0 10px 0;
+    font-weight: normal;
+}
+
+.filtros {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.aba {
+    background: var(--cor-2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--principal);
+    text-decoration: none;
+}
+
+.aba.active {
+    background: var(--principal);
+    color: white;
+}
+
+.aba span {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.add-tarefa {
+    background: #E8EFEA;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.add-tarefa input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.add-tarefa button {
+    background-color: var(--principal);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lista-tarefas {
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    border: 1px solid var(--cor-1);
+}
+
+.lista-tarefas-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--cor-1);
+    display: flex;
+    justify-content: space-between;
+    color: var(--cinza2);
+    font-size: 14px;
+}
+
+.lista-tarefas-header strong {
+    color: var(--cinza);
+    font-size: 16px;
+}
+
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--cor-1);
+}
+
+.item-tarefa:last-child {
+    border-bottom: none;
+}
+
+.nome-tarefa {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.opcoes-tarefa {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--cinza);
+    font-size: 14px;
+}
+
+.btn-deletar {
+    color: #d9534f;
+}
+
+.concluida .task-name span {
+    text-decoration: line-through;
+    color: var(--cinza3);
+}
