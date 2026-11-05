@@ -32,7 +32,7 @@ $nao_concluidas = R::count('tarefa', ' concluida = 0 ');
 <body>
 
     <div class="container">
-        <div class="header-banner">
+        <div class="banner">
             <h1>Seu dia, com mais clareza.</h1>
             <p>Um lugar para organizar suas tarefas e celebrar cada conquista.<br>Adicione, acompanhe e conclua. Uma coisa de cada vez.</p>
         </div>

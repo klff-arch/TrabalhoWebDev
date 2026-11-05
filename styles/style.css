@@ -20,7 +20,7 @@ body {
     margin: 0 auto;
 }
 
-.header-banner {
+.banner {
     background-color: var(--principal);
     color: white;
     padding: 40px;
@@ -28,7 +28,7 @@ body {
     margin-bottom: 20px;
 }
 
-.header-banner h1 {
+.banner h1 {
     margin: 0 0 10px 0;
     font-weight: normal;
 }
