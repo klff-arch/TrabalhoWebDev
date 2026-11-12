@@ -1,22 +1,21 @@
 <?php
+require 'autentica.php';
+exigeLogin();
 
-require 'classes/rb-mysql.php';
-
-R::setup('mysql:host=127.0.0.1;dbname=tarefas', 'root', 'aluno');
-
+$userid = $_SESSION['usuario_id'];
 $filtro = $_GET['filtro'] ?? 'todas';
 
 if ($filtro === 'concluidas') {
-    $tarefas = R::find('tarefa', ' concluida = 1 ');
+    $tarefas = R::find('tarefa', ' usuario_id = ? AND concluida = 1 ', [$userid]);
 } elseif ($filtro === 'nao_concluidas') {
-    $tarefas = R::find('tarefa', ' concluida = 0 ');
+    $tarefas = R::find('tarefa', ' usuario_id = ? AND concluida = 0 ', [$userid]);
 } else {
-    $tarefas = R::findAll('tarefa');
+    $tarefas = R::find('tarefa', ' usuario_id = ? ', [$userid]);
 }
 
-$total = R::count('tarefa');
-$concluidas = R::count('tarefa', ' concluida = 1 ');
-$nao_concluidas = R::count('tarefa', ' concluida = 0 ');
+$total          = R::count('tarefa', ' usuario_id = ? ', [$userid]);
+$concluidas     = R::count('tarefa', ' usuario_id = ? AND concluida = 1 ', [$userid]);
+$nao_concluidas = R::count('tarefa', ' usuario_id = ? AND concluida = 0 ', [$userid]);
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +32,7 @@ $nao_concluidas = R::count('tarefa', ' concluida = 0 ');
 
     <div class="container">
         <div class="banner">
+            <p>Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?></p>
             <h1>Seu dia, com mais clareza.</h1>
             <p>Um lugar para organizar suas tarefas e celebrar cada conquista.<br>Adicione, acompanhe e conclua. Uma coisa de cada vez.</p>
         </div>
@@ -50,7 +50,7 @@ $nao_concluidas = R::count('tarefa', ' concluida = 0 ');
         </div>
 
         <div class="add-tarefa">
-            <form action="inclusao.php" method="POST" style="display: flex; width: 100%; gap: 15px;">
+            <form action="inclusao.php" method="POST">
                 <input type="text" name="nome_tarefa" placeholder="Escreva o nome de uma nova tarefa" required>
                 <button type="submit">+ Adicionar tarefa</button>
             </form>
@@ -79,7 +79,9 @@ $nao_concluidas = R::count('tarefa', ' concluida = 0 ');
                     </div>
                 </div>
             <?php endforeach; ?>
+            
         </div>
+        <p><a href="logout.php" class="btn">Sair</a></p>
     </div>
 </body>
 

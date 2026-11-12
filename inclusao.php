@@ -1,15 +1,12 @@
 <?php
-
-require 'classes/rb-mysql.php';
-R::setup('mysql:host=127.0.0.1;dbname=tarefas', 'root', 'aluno');
+require 'autentica.php';
+exigeLogin();
 
 if (isset($_POST['nome_tarefa']) && !empty(trim($_POST['nome_tarefa']))) {
-    $nomeTarefa = trim($_POST['nome_tarefa']);
-
     $tarefa = R::dispense('tarefa');
-    $tarefa->nome = $nomeTarefa;
+    $tarefa->nome = trim($_POST['nome_tarefa']);
     $tarefa->concluida = 0;
-
+    $tarefa->usuario_id = $_SESSION['usuario_id'];
     R::store($tarefa);
 }
 
