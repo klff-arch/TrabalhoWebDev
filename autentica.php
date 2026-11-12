@@ -2,7 +2,7 @@
 require 'classes/rb-mysql.php';
 
 if (!R::testConnection()) {
-    R::setup('mysql:host=127.0.0.1;dbname=tarefas', 'root', 'admin');
+    R::setup('mysql:host=127.0.0.1;dbname=tarefas', 'root', 'aluno');
 }
 
 session_start();
