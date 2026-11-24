@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <div class="banner">
-            <h1>Bem-vindo de volta</h1>
+            <h1>Seja bem-vindo!</h1>
         </div>
 
         <?php if ($erro): ?>
